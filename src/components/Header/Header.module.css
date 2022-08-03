@@ -1,0 +1,49 @@
+.toolbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    align-items: center;
+    background-color: #3D50B3;
+}
+
+.title {
+    display: block;
+    width: 300px;
+}
+
+.search {
+    position: relative;
+    border-radius: 8px;
+    background-color: rgba(91, 105, 192, 15);
+    margin-left: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 2px;
+    height: 50%;
+}
+
+.search:hover {
+    background-color: rgba(182, 187, 220, 0.49);
+}
+
+.inputRoot {
+    color: inherit;
+    padding-left: 25px;
+}
+
+.inputInput {
+    padding: 5px;
+}
+
+.searchIcon {
+    height: 100%;
+    padding: 2px;
+    position: absolute;
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
