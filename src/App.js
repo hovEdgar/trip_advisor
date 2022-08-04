@@ -1,11 +1,25 @@
+import {useEffect, useState} from "react";
 import Header from "./components/Header/Header";
 import Map from "./components/Map/Map";
 import List from "./components/List/List";
 // import PlaceDetails from "./components/PlaceDetails/PlaceDetails";
 
 import {CssBaseline, Grid} from "@mui/material";
+import {getPlacesData} from "./components/api";
 
 const App = () => {
+    const [places, setPlaces] = useState([]);
+
+    useEffect(() => {
+        console.log("xuy 2");
+        getPlacesData()
+            .then((data) => {
+                console.log(data);
+
+                setPlaces(data);
+            })
+    }, []);
+
     return (
         <>
             <CssBaseline/>
