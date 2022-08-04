@@ -11,7 +11,6 @@ const App = () => {
     const [places, setPlaces] = useState([]);
 
     useEffect(() => {
-        console.log("xuy 2");
         getPlacesData()
             .then((data) => {
                 console.log(data);
