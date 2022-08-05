@@ -5,11 +5,7 @@ import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
 import classes from './PlaceDetails.module.css';
 
 const PlaceDetails = ({place, selected, refProp}) => {
-    // console.log(place) // todo remove
-
-    if (selected) {
-        refProp?.current?.scrollIntoView({behavior: "smooth", block: "start"});
-    }
+    if (selected) refProp?.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
 
     return (
         <Card elevation={6}>

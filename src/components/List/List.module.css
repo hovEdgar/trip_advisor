@@ -56,9 +56,3 @@
 ::-webkit-scrollbar-thumb:hover {
     background: #3D50B3;
 }
-
-@media screen and (max-width: 600px){
-    .selectBox {
-        flex-direction: column;
-    }
-}

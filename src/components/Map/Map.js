@@ -26,9 +26,9 @@ const Map = ({setCoordinates, setBounds, coordinates, places, setChildClicked}) 
                 {places?.map((place, i) => (
                     <div
                         className={classes.markerContainer}
-                        lat={+place.latitude}
-                        lng={+place.longitude}
-                        key={i +Math.random()}
+                        lat={Number(place.latitude)}
+                        lng={Number(place.longitude)}
+                        key={i}
                     >
                         {isMobile ? (
                             <LocationOnOutlinedIcon color="primary" fontSize="large"/>
