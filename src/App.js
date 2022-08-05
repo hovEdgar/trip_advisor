@@ -9,26 +9,48 @@ import {getPlacesData} from "./components/api";
 
 const App = () => {
     const [places, setPlaces] = useState([]);
+    const [coordinates, setCoordinates] = useState({lat: 0, lng: 0});
+    const [bounds, setBounds] = useState({});
+    const [childClicked, setChildClicked] = useState(null);
+    const [isLoading, setIsLoading] = useState(false);
+
 
     useEffect(() => {
-        getPlacesData()
-            .then((data) => {
-                console.log(data);
-
-                setPlaces(data);
-            })
+        navigator.geolocation.getCurrentPosition(({coords: {latitude, longitude}}) => {
+            setCoordinates({lat: latitude, lng: longitude});
+        })
     }, []);
+
+    useEffect(() => {
+        setIsLoading(true);
+
+        getPlacesData(bounds?.sw, bounds?.ne)
+            .then((data) => {
+                setPlaces(data);
+                setIsLoading(false);
+            })
+    }, [coordinates, bounds]);
 
     return (
         <>
             <CssBaseline/>
             <Header/>
-            <Grid container spacing={3} style={{width: "100%"}}>
-                <Grid item xs={12} md={4}>
-                    <List/>
+            <Grid container spacing={3} style={{width: "100%", margin: "auto"}}>
+                <Grid item xs={12} md={5} >
+                    <List
+                        places={places}
+                        childClicked={childClicked}
+                        isLoading={isLoading}
+                    />
                 </Grid>
-                <Grid item xs={12} md={8}>
-                    <Map/>
+                <Grid item xs={12} md={7}>
+                    <Map
+                        setCoordinates={setCoordinates}
+                        setBounds={setBounds}
+                        coordinates={coordinates}
+                        places={places}
+                        setChildClicked={setChildClicked}
+                    />
                 </Grid>
             </Grid>
         </>

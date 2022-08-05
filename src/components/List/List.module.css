@@ -1,6 +1,5 @@
 .formControl {
     min-width: 120px;
-    margin: 1% 1% 30px;
 }
 
 .selectEmpty {
@@ -25,4 +24,41 @@
 .list {
     height: 75vh;
     overflow: auto;
+}
+
+.selectBox {
+    height: 10vh;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 35px;
+    padding: 10px;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: transparent;
+    border-right: .5px solid darkgray;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #9CC0F9;
+    height: 70px;
+    border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #3D50B3;
+}
+
+@media screen and (max-width: 600px){
+    .selectBox {
+        flex-direction: column;
+    }
 }
