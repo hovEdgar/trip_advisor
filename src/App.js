@@ -2,7 +2,6 @@ import {useEffect, useState} from "react";
 import Header from "./components/Header/Header";
 import Map from "./components/Map/Map";
 import List from "./components/List/List";
-// import PlaceDetails from "./components/PlaceDetails/PlaceDetails";
 
 import {CssBaseline, Grid} from "@mui/material";
 import {getPlacesData} from "./components/api";
@@ -10,7 +9,7 @@ import {getPlacesData} from "./components/api";
 const App = () => {
     const [places, setPlaces] = useState([]);
     const [coordinates, setCoordinates] = useState({lat: 0, lng: 0});
-    const [bounds, setBounds] = useState({sw: {lat: 0, lng: 0}, ne: {lat: 0, lng: 0}});
+    const [bounds, setBounds] = useState({});
     const [childClicked, setChildClicked] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
     const [selectType, setSelectType] = useState("restaurants");
@@ -30,19 +29,22 @@ const App = () => {
     }, [rating])
 
     useEffect(() => {
-        setIsLoading(true);
+        if (bounds.sw && bounds.ne) {
+            setIsLoading(true);
 
-        getPlacesData(selectType, bounds?.sw, bounds?.ne)
-            .then((data) => {
-                setPlaces(data);
-                setIsLoading(false);
-            });
-    }, [coordinates, bounds, selectType]);
+            getPlacesData(selectType, bounds?.sw, bounds?.ne)
+                .then((data) => {
+                    setPlaces(data?.filter(place => place.name && place.num_reviews > 0));
+                    setIsLoading(false);
+                });
+        }
+
+    }, [bounds, selectType, coordinates]);
 
     return (
         <>
             <CssBaseline/>
-            <Header/>
+            <Header setCoordinates={setCoordinates}/>
             <Grid container spacing={3} style={{width: "100%", margin: "auto"}}>
                 <Grid item xs={12} md={4} >
                     <List

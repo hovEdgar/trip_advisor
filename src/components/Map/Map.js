@@ -8,6 +8,7 @@ import classes from "./Map.module.css";
 const Map = ({setCoordinates, setBounds, coordinates, places, setChildClicked}) => {
     const isMobile = useMediaQuery("(min-with: 600px)");
 
+    {/* you need to use API key on public/index.html file too in script with source of "google"*/}
     return (
         <div className={classes.mapContainer}>
             <GoogleMapReact
@@ -19,7 +20,7 @@ const Map = ({setCoordinates, setBounds, coordinates, places, setChildClicked}) 
                 options={""}
                 onChange={(e) => {
                     setCoordinates({lat: e.center.lat, lng: e.center.lng});
-                    setBounds({ne: e.marginBounds.ne, sw: e.marginBounds.sw});
+                    setBounds({sw: e.marginBounds.sw, ne: e.marginBounds.ne });
                 }}
                 onChildClick={(child) => setChildClicked(child)}
             >

@@ -21,7 +21,7 @@
     align-items: center;
     justify-content: flex-start;
     padding: 2px;
-    height: 50%;
+    height: 100%;
 }
 
 .search:hover {
