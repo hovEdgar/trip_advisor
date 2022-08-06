@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/trip_advisor/static/css/main.23c7bd0e.css",
+    "main.js": "/trip_advisor/static/js/main.988a0721.js",
+    "index.html": "/trip_advisor/index.html",
+    "main.23c7bd0e.css.map": "/trip_advisor/static/css/main.23c7bd0e.css.map",
+    "main.988a0721.js.map": "/trip_advisor/static/js/main.988a0721.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.23c7bd0e.css",
+    "static/js/main.988a0721.js"
+  ]
+}
