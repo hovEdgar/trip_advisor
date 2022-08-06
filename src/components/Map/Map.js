@@ -4,20 +4,20 @@ import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
 import {Rating} from "@mui/material";
 
 import classes from "./Map.module.css";
+import mapStyles from "./MapStyles";
 
 const Map = ({setCoordinates, setBounds, coordinates, places, setChildClicked}) => {
     const isMobile = useMediaQuery("(min-with: 600px)");
 
-    {/* you need to use API key on public/index.html file too in script with source of "google"*/}
     return (
         <div className={classes.mapContainer}>
             <GoogleMapReact
-                bootstrapURLKeys={{key: "AIzaSyBVIAIavDNWWcZPaBChFW8JPjpAyl2fLbk"}}
+                bootstrapURLKeys={{key: process.env.REACT_APP_GOOGLE_MAPS_API_KEY}}
                 defaultCenter={coordinates}
                 center={coordinates}
                 defaultZoom={14}
                 margin={[50, 50, 50, 50]}
-                options={""}
+                options={{disableDefaultUI: true, zoomControl: true, styles: mapStyles}}
                 onChange={(e) => {
                     setCoordinates({lat: e.center.lat, lng: e.center.lng});
                     setBounds({sw: e.marginBounds.sw, ne: e.marginBounds.ne });

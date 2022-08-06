@@ -2,6 +2,7 @@ import {useEffect, useState} from "react";
 import Header from "./components/Header/Header";
 import Map from "./components/Map/Map";
 import List from "./components/List/List";
+import Footer from "./components/Footer/Footer";
 
 import {CssBaseline, Grid} from "@mui/material";
 import {getPlacesData} from "./components/api";
@@ -67,6 +68,7 @@ const App = () => {
                     />
                 </Grid>
             </Grid>
+            <Footer/>
         </>
     );
 };

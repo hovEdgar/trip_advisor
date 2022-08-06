@@ -14,7 +14,7 @@ const List = ({places, childClicked, isLoading, rating, setRating, selectType, s
 
 
     return (<div className={classes.container}>
-            <Typography variant="h6" style={{display: "block", marginBottom: 10, textAlign: "center"}}>
+            <Typography variant="h6" style={{display: "block", marginBottom: 10, textAlign: "center", textShadow: "1px 1px 2px #3D50B3"}}>
                 Restaurants, Hotels & Attractions around you
             </Typography>
             {isLoading ? (<div className={classes.loading}>
